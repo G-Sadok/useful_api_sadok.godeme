@@ -35,18 +35,18 @@ class AuthController extends Controller
 
         $modules = Modules::all();
 
-        // $user_module = User_Modules::create([
-        //     'user_id' => $user['id'],
-        //     'module_id' =>$modules[0]['id'],
-        //     'active' => false,
-        // ]);
+        $user_module = User_Modules::create([
+            'user_id' => $user['id'],
+            'module_id' =>$modules[0]['id'],
+            'active' => false,
+        ]);
 
 
 
         return response()->json(["id"=>$user['id'], "name"=>$user['name'], "email"=>$user['email'], "created_at"=>$user['created_at'] ], 201);
     }
 
-    // Login user and return JWT token
+    // Login user and return token
     public function login(Request $request)
     {
 
