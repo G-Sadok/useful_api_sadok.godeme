@@ -12,8 +12,9 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('user_modules', function (Blueprint $table) {
-            $table->foreignId('user_id');
-            $table->foreignId('module_id');
+            $table->id();
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
+            $table->foreignId('module_id')->constrained()->onDelete('cascade');
             $table->boolean('active');
             $table->timestamps();
         });
