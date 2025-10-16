@@ -10,18 +10,18 @@ use Illuminate\Http\Request;
 class UserModuleController extends Controller
 {
      //Activate Module
-    public function activate(Request $request)
+    public function activate($id)
     {
 
-        $user = User::all();
+        $user = User::all()[2];
 
-        if (!$request->module_id) {
+        if (!$id) {
             return response()->json(['errors' => 'Error activating module'], 404);
         }
 
-        $user_module = (new User_Modules())->update([
-            'user_id' => $user[0]['id'],
-            'module_id' =>$request->module_id,
+        $user_module = User_Modules::create([
+            'user_id' => $user['id'],
+            'module_id' =>$id,
             'active' => true,
         ]);
 
@@ -29,12 +29,12 @@ class UserModuleController extends Controller
     }
 
     //Desactivate Module
-    public function desactivate(Request $request)
+    public function desactivate($id)
     {
 
         $user = User::find('id');
 
-        if (!$request->module_id) {
+        if (!$id) {
             return response()->json(['errors' => 'Error activating module'], 404);
         }
 
