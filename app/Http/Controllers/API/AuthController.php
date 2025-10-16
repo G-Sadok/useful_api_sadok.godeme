@@ -33,12 +33,10 @@ class AuthController extends Controller
             'password' => Hash::make($request->password)
         ]);
 
-
-
         return response()->json(["id"=>$user['id'], "name"=>$user['name'], "email"=>$user['email'], "created_at"=>$user['created_at'] ], 201);
     }
 
-    // Login user and return token
+    // Login user and return JWT token
     public function login(Request $request)
     {
 
