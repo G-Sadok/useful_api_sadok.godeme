@@ -40,7 +40,7 @@ class UserModuleController extends Controller
 
         $user_module = User_Modules::update([
             'user_id' => $user['id'],
-            'module_id' =>$request->module_id,
+            'module_id' =>$id,
             'active' => false,
         ]);
 
