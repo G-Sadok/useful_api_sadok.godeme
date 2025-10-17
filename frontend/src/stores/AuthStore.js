@@ -10,8 +10,6 @@ export const AuthStore = defineStore('auth', {
       token: null,
     }
   },
-
-
   actions: {
 
     // User Registration
@@ -46,11 +44,23 @@ export const AuthStore = defineStore('auth', {
 
         this.token = data.token
         this.data = JSON.stringify(data[0])
-        console.log(data.user)
+        this.user = JSON.stringify(data.user)
+        console.log("UserData",data.user)
 
         localStorage.setItem('token', data.token)
-        localStorage.setItem('user', this.data)
+        localStorage.setItem('user', this.user)
         return data
+      } catch (error) {
+        console.error('*Error login:', error)
+        throw error
+      }
+    },
+
+    async logout() {
+      try {
+        localStorage.removeItem('token')
+        localStorage.removeItem('user')
+        localStorage.removeItem('usersData')
       } catch (error) {
         console.error('*Error login:', error)
         throw error
