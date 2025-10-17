@@ -19,7 +19,7 @@ class UserModuleController extends Controller
             return response()->json(['errors' => 'Error activating module'], 404);
         }
 
-        $user_module = User_Modules::create([
+        $user_module = (new User_Modules)->create([
             'user_id' => $user['id'],
             'module_id' =>$id,
             'active' => true,
@@ -38,7 +38,7 @@ class UserModuleController extends Controller
             return response()->json(['errors' => 'Error activating module'], 404);
         }
 
-        $user_module = User_Modules::update([
+        $user_module = (new User_Modules)->update([
             'user_id' => $user['id'],
             'module_id' =>$id,
             'active' => false,
