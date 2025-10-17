@@ -1,5 +1,5 @@
 <script setup>
-import RegisterComponent from '@/components/RegisterFormComponent.vue';
+import RegisterFormComponent from '@/components/RegisterFormComponent.vue';
 </script>
 
 
@@ -13,7 +13,7 @@ import RegisterComponent from '@/components/RegisterFormComponent.vue';
     </div>
 
     <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-      <RegisterComponent/>
+      <RegisterFormComponent/>
 
       <p class="mt-10 text-center text-sm/6 text-gray-400">
         Already have Account

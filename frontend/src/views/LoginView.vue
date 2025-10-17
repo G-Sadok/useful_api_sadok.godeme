@@ -1,5 +1,5 @@
 <script setup>
-import LoginComponent from '@/components/LoginFormComponent.vue';
+import LoginFormComponent from '@/components/LoginFormComponent.vue';
 </script>
 
 <template>
@@ -13,7 +13,7 @@ import LoginComponent from '@/components/LoginFormComponent.vue';
     </div>
 
     <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-      <LoginComponent/>
+      <LoginFormComponent/>
 
       <p class="mt-10 text-center text-sm/6 text-gray-400">
         Not a member?
